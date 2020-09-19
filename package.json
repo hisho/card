@@ -1,6 +1,6 @@
 {
   "name": "@hisho/card",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A personal card for Hisho",
   "main": "./bin/card.js",
   "bin": {
