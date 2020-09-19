@@ -2,7 +2,10 @@
   "name": "@hisho/card",
   "version": "1.0.2",
   "description": "A personal card for Hisho",
-  "main": "dist/index.js",
+  "main": "./bin/card.js",
+  "bin": {
+    "@hisho/card": "./bin/card.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hishohub/hisho"
@@ -11,7 +14,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
-    "dev": "tsc && node ./dist/index.js",
+    "dev": "tsc && node ./bin/card.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

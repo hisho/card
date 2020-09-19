@@ -4,14 +4,14 @@ const fs = require('fs-extra');
 const path = require('path');
 
 type dataType = Readonly<{
-  [key:string]: {
+  [key: string]: {
     label: string,
     description: string
   }
 }>
 
-const heading:string = chalk.white('                               Hisho');
-const data:dataType = {
+const heading: string = chalk.white('                               Hisho');
+const data: dataType = {
   work: {
     label: chalk.white.bold('       Work:'),
     description: chalk.white('Web Developer 📦')
@@ -45,7 +45,7 @@ type boxenOptions = Readonly<Partial<{
   padding: number
   backgroundColor: 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white' | 'gray' | '#231815'
 }>>
-const boxenOptions:boxenOptions = {
+const boxenOptions: boxenOptions = {
   borderColor: "green",
   padding: 1,
   margin: 1,
@@ -54,26 +54,19 @@ const boxenOptions:boxenOptions = {
 };
 
 
-async function main() {
+function main() {
+  const output = `${heading}
+  
+  ${data.work.label}  ${data.work.description}
 
-  await new Promise(resolve => {
-    const output = `${heading}
-    
-      ${data.work.label}  ${data.work.description}
+  ${data.github.label}  ${data.github.description}
+  ${data.twitter.label}  ${data.twitter.description}
+  ${data.note.label}  ${data.note.description}
+  ${data.web.label}  ${data.web.description}
+  
+  ${data.card.label}  ${data.card.description}`;
 
-      ${data.github.label}  ${data.github.description}
-      ${data.twitter.label}  ${data.twitter.description}
-      ${data.note.label}  ${data.note.description}
-      ${data.web.label}  ${data.web.description}
-      
-      ${data.card.label}  ${data.card.description}`;
-
-    fs.writeFileSync(path.resolve(__dirname, './output'), boxen(output, boxenOptions));
-    resolve();
-  })
-
-  const output = fs.readFileSync(path.resolve(__dirname, 'output'), 'utf8');
-  console.log(output);
+  fs.writeFileSync(path.resolve(__dirname, './output'), boxen(output, boxenOptions));
 }
 
 main();
