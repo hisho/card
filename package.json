@@ -2,7 +2,7 @@
   "name": "@hisho/card",
   "version": "1.0.1",
   "description": "A personal card for Hisho",
-  "main": "/dist/index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/hishohub/hisho"
