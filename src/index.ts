@@ -3,57 +3,77 @@ const boxen = require('boxen');
 const fs = require('fs-extra');
 const path = require('path');
 
-(async () => {
+type dataType = Readonly<{
+  [key:string]: {
+    label: string,
+    description: string
+  }
+}>
 
-  const boxenOptions = {
-    padding: 1,
-    margin: 1,
-    borderStyle: 'classic',
-    backgroundColor: '#231815'
-  };
+const heading:string = chalk.white('                               Hisho');
+const data:dataType = {
+  work: {
+    label: chalk.white.bold('       Work:'),
+    description: chalk.white('Web Developer 📦')
+  },
+  github: {
+    label: chalk.white.bold('     GitHub:'),
+    description: chalk.gray('https://github.com/') + chalk.green('hishohub')
+  },
+  twitter: {
+    label: chalk.white.bold('    Twitter:'),
+    description: chalk.gray('https://twitter.com/') + chalk.cyan('hisho_official')
+  },
+  note: {
+    label: chalk.white.bold('       Note:'),
+    description: chalk.gray('https://note.com/') + chalk.blue('hisho_official')
+  },
+  web: {
+    label: chalk.white.bold('        Web:'),
+    description: chalk.cyan('https://hisho.dev/')
+  },
+  card: {
+    label: chalk.white.bold('       Card:'),
+    description: chalk.red('npx') + ' ' + chalk.white('@hisho/card  (via GitHub Package Registry)')
+  }
+}
+
+type boxenOptions = Readonly<Partial<{
+  borderColor: 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white' | 'gray'
+  borderStyle: 'single' | 'double' | 'round' | 'classic'
+  margin: number
+  padding: number
+  backgroundColor: 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white' | 'gray' | '#231815'
+}>>
+const boxenOptions:boxenOptions = {
+  borderColor: "green",
+  padding: 1,
+  margin: 1,
+  borderStyle: "single",
+  backgroundColor: "#231815"
+};
+
+
+async function main() {
 
   await new Promise(resolve => {
-    // Text + chalk definitions
-    const data = {
-      name: chalk.white('                            Hisho'),
-      work: chalk.white('Web Developer 📦'),
-      twitter: chalk.gray('https://twitter.com/') + chalk.cyan('hisho_official'),
-      github: chalk.gray('https://github.com/') + chalk.green('hishohub'),
-      note: chalk.gray('https://note.com/') + chalk.blue('hisho_official'),
-      web: chalk.cyan('https://hisho.dev/'),
-      npx: chalk.red('npx') + ' ' + chalk.white('@hisho/card  (via GitHub Package Registry)'),
-      labelWork: chalk.white.bold('       Work:'),
-      labelTwitter: chalk.white.bold('    Twitter:'),
-      labelGitHub: chalk.white.bold('     GitHub:'),
-      labelNote: chalk.white.bold('       Note:'),
-      labelWeb: chalk.white.bold('        Web:'),
-      labelCard: chalk.white.bold('       Card:')
-    }
+    const output = `${heading}
+    
+      ${data.work.label}  ${data.work.description}
 
-// Actual strings we're going to output
-    const newline = '\n';
-    const heading = `${data.name}`;
-    const working = `${data.labelWork}  ${data.work}`;
-    const twittering = `${data.labelTwitter}  ${data.twitter}`;
-    const github = `${data.labelGitHub}  ${data.github}`;
-    const note = `${data.labelNote}  ${data.note}`;
-    const webb = `${data.labelWeb}  ${data.web}`;
-    const carding = `${data.labelCard}  ${data.npx}`;
+      ${data.github.label}  ${data.github.description}
+      ${data.twitter.label}  ${data.twitter.description}
+      ${data.note.label}  ${data.note.description}
+      ${data.web.label}  ${data.web.description}
+      
+      ${data.card.label}  ${data.card.description}`;
 
-// Put all our output together into a single variable so we can use boxen effectively
-    const output = heading + // data.name + data.handle
-      newline + newline + // Add one whole blank line
-      working + newline + // data.labelWork + data.work
-      newline + // data.labelOpenSource + data.opensource
-      github + newline + // data.labelGitHub + data.github
-      twittering + newline + // data.labelTwitter + data.twitter
-      note + newline + // data.labelLinkedIn + data.linkedin
-      webb + newline + newline + // data.labelWeb + data.web
-      carding; // data.labelCard + data.npx
-
-    fs.writeFileSync(path.resolve(__dirname, './output'), chalk.green(boxen(output, boxenOptions)));
+    fs.writeFileSync(path.resolve(__dirname, './output'), boxen(output, boxenOptions));
     resolve();
   })
+
   const output = fs.readFileSync(path.resolve(__dirname, 'output'), 'utf8');
   console.log(output);
-})()
+}
+
+main();
