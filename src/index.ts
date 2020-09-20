@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+// 👆 Used to tell Node.js that this is a CLI tool
+
 const chalk = require('chalk');
 const boxen = require('boxen');
 const fs = require('fs');
