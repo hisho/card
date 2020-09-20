@@ -28,8 +28,8 @@
   "author": "Hisho <hisho.web@gmail.com> (https://hisho.dev/)",
   "license": "MIT",
   "files": [
-    "dist/index.js",
-    "dist/output"
+    "bin/index.js",
+    "bin/output"
   ],
   "devDependencies": {
     "@types/chalk": "^2.2.0",
