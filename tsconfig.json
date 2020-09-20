@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "./bin",
     "rootDir": "./src",
     "module": "esnext",
     "target": "es2019",
