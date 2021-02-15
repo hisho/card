@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hishohub/hisho"
+    "url": "https://github.com/hisho/hisho"
   },
-  "homepage": "https://github.com/hishohub/hisho",
+  "homepage": "https://github.com/hisho/hisho",
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
@@ -19,13 +19,11 @@
   },
   "keywords": [
     "card",
-    "npm",
     "npm card",
-    "npx",
     "npx card",
     "business card"
   ],
-  "author": "Hisho <hisho.web@gmail.com> (https://hisho.dev/)",
+  "author": "Hisho",
   "license": "MIT",
   "files": [
     "bin/index.js",
@@ -39,7 +37,7 @@
     "typescript": "^4.0.3"
   },
   "bugs": {
-    "url": "https://github.com/hishohub/hisho/issues"
+    "url": "https://github.com/hisho/hisho/issues"
   },
   "dependencies": {
     "boxen": "^2.1.0",
