@@ -20,15 +20,15 @@ type dataType = Readonly<{
     },
     github: {
       label: chalk.white.bold('GitHub:'.padStart(12, ' ')),
-      description: chalk.gray('https://github.com/') + chalk.green('hishohub')
+      description: chalk.gray('https://github.com/') + chalk.green('hisho')
     },
     twitter: {
       label: chalk.white.bold('Twitter:'.padStart(12, ' ')),
-      description: chalk.gray('https://twitter.com/') + chalk.cyan('hisho_official')
+      description: chalk.gray('https://twitter.com/') + chalk.cyan('__hisho__')
     },
     note: {
-      label: chalk.white.bold('Note:'.padStart(12, ' ')),
-      description: chalk.gray('https://note.com/') + chalk.blue('hisho_official')
+      label: chalk.white.bold('Zenn:'.padStart(12, ' ')),
+      description: chalk.gray('https://zenn.dev/') + chalk.blue('hisho')
     },
     web: {
       label: chalk.white.bold('Web:'.padStart(12, ' ')),
