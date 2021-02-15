@@ -1,10 +1,10 @@
 {
   "name": "@hisho/card",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A personal card for Hisho",
   "main": "./bin/index.js",
   "bin": {
-    "@hisho/card": "./bin/index.js"
+    "card": "bin/index.js"
   },
   "repository": {
     "type": "git",
